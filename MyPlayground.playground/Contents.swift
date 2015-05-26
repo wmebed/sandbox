@@ -42,3 +42,47 @@ class Dog {
 
 var dog = Dog(name: "Hobo", breed: "Russel Terrier")
 println(dog.toString())
+
+class Animal {
+    var type: String
+    var name: String
+    
+    init(type: String, name: String) {
+        self.type = type
+        self.name = name
+        
+    }
+    
+    func toString() -> String {
+        return "name is " + name + " and type is " + type
+    }
+}
+
+class Cat: Animal {
+    init(name: String) {
+        super.init(type: "cat", name: name)
+    }
+}
+
+var myCat = Cat(name: "Fritz")
+myCat.toString()
+
+class Foo {
+    var bar: String = nil
+}
+
+var thing = Foo()
+
+class BankAccount {
+    var accountBalance: Float = 0
+    var accountNumber: Int = 0
+    let fees: Float = 25.00
+    
+    init(accountNumber: Int) {
+        self.accountNumber = accountNumber
+    }
+    
+}
+
+
+
