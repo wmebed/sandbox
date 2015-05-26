@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,22 +16,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1p-Lo-8Xd">
-                                <rect key="frame" x="175" y="286" width="251" height="28"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter temperature" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJ0-Jp-dqn">
+                                <rect key="frame" x="195" y="38" width="211" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="251" id="bBD-g3-GlB"/>
+                                    <constraint firstAttribute="width" constant="211" id="tRM-Nf-DYu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="kFV-aP-VHl"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmW-be-eEq">
+                                <rect key="frame" x="223" y="84" width="155" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="XfR-Ul-Rb5"/>
+                                </constraints>
+                                <state key="normal" title="Convert to celcius">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="convertTemp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ccd-ja-E3a"/>
+                                    <action selector="textFieldReturn:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="D4b-1m-TgG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMY-a2-ksO">
+                                <rect key="frame" x="156" y="132" width="289" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="DCx-JY-sdr"/>
+                                    <constraint firstAttribute="width" constant="289" id="Le9-Ge-kyt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="M1p-Lo-8Xd" secondAttribute="centerX" id="Lix-rJ-J2J"/>
-                            <constraint firstAttribute="centerY" secondItem="M1p-Lo-8Xd" secondAttribute="centerY" id="aNO-cn-pdI"/>
+                            <constraint firstItem="EmW-be-eEq" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="FHQ-hE-SUx"/>
+                            <constraint firstItem="EmW-be-eEq" firstAttribute="top" secondItem="WJ0-Jp-dqn" secondAttribute="bottom" constant="16" id="UG3-AF-ZED"/>
+                            <constraint firstItem="HMY-a2-ksO" firstAttribute="centerX" secondItem="EmW-be-eEq" secondAttribute="centerX" id="ZDO-56-hFo"/>
+                            <constraint firstItem="HMY-a2-ksO" firstAttribute="top" secondItem="EmW-be-eEq" secondAttribute="bottom" constant="18" id="lGD-yF-Jjy"/>
+                            <constraint firstItem="WJ0-Jp-dqn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="18" id="rz9-hV-tsK"/>
+                            <constraint firstItem="WJ0-Jp-dqn" firstAttribute="centerX" secondItem="EmW-be-eEq" secondAttribute="centerX" id="wYf-17-Rdt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="HMY-a2-ksO" id="Ui5-ki-1gE"/>
+                        <outlet property="tempText" destination="WJ0-Jp-dqn" id="lrX-Qm-3qF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
